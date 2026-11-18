@@ -20,6 +20,7 @@ The supplied archive is a React 19, React Router, and Vite application, not a Ne
 - `npm run lint` (`tsc --noEmit`): passed.
 - `npm run build`: passed; generated 46 sitemap routes and `404.html`.
 - Vercel configuration sanity check: passed for JSON syntax, Node 22.x, build/output commands, redirects, no SPA rewrite, generated not-found document, and the README deployment link.
+- GitHub: created and verified the public [`talkbangladesh/atlas-ai-institute`](https://github.com/talkbangladesh/atlas-ai-institute) repository; pushed the site on `main`. The push excludes generated `dist/`, `node_modules/`, and real `.env` files.
 - Raw-file validation: all 46 sitemap routes had prerendered body content, a title, description, canonical URL, and parseable JSON-LD. The 404 document had `noindex, follow`; the reports list contained four Report records; robots and llms files were present.
 - Frontend preservation: compared the body markup of all 48 original prerendered `index.html` files with the rebuilt package; all were byte-identical.
 - Local Vite production-preview checks returned HTTP 200 for `/`, the founder profile, `/reports/`, `sitemap.xml`, `robots.txt`, and `llms.txt`.
@@ -29,4 +30,4 @@ The supplied archive is a React 19, React Router, and Vite application, not a Ne
 
 The local Vite preview returns HTTP 200 and the homepage shell for an unknown path, so that preview does not prove Vercel’s status behavior. The Vercel build emits `dist/404.html`, and the Vercel config does not rewrite unknown paths to the homepage; the production HTTP 404, redirects, and headers still require verification after a Vercel deployment.
 
-No production deployment or Git checkpoint was performed; the supplied archive has no `.git` directory or configured `origin`. Mobile/desktop Lighthouse runs and screenshot comparisons were not performed. Public claims requiring independent source review remain marked pending in the evidence registry; this package does not claim to have completed that external fact-check.
+No Vercel project or production deployment was created. Mobile/desktop Lighthouse runs and screenshot comparisons were not performed. Public claims requiring independent source review remain marked pending in the evidence registry; this package does not claim to have completed that external fact-check.

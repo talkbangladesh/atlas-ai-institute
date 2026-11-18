@@ -43,12 +43,13 @@
 - [x] মূল ZIP-এর ৪৮টি prerendered `index.html`-এর body markup rebuilt output-এর সঙ্গে byte-identical; পরিবর্তন দৃশ্যমান body/layout-এ নয়, metadata/structured data এবং discovery files-এ সীমাবদ্ধ।
 - [ ] `npm audit` (2026-11-18): ৫টি high, ০ critical advisory; `vite`/`@vitejs/plugin-react`-এর প্রস্তাবিত fix major-version change এবং Vite 8 থেকে 6.2.7 downgrade, তাই অনুমতি ও compatibility যাচাই ছাড়া dependency/lockfile বদলানো হয়নি। Mobile/desktop Lighthouse, screenshot comparison, production HTTP status, এবং host headers এখনো যাচাই হয়নি।
 - [x] দাবির registry `docs/evidence-registry.csv` যোগ করা হয়েছে; unsupported superlative-গুলোকে প্রকাশযোগ্য fact হিসেবে না দেখিয়ে pending/unsupported হিসেবে চিহ্নিত করা হয়েছে।
-- [x] এই প্যাকেজে live deployment না করা হয়েছে। Git checkpoint কেবল repository ও `origin` যুক্ত থাকলে সংরক্ষণ করা যাবে।
+- [x] Public GitHub repository `https://github.com/talkbangladesh/atlas-ai-institute` তৈরি করে site source `main` branch-এ push করা হয়েছে; GitHub-এ visibility, branch ও required deployment files যাচাই করা হয়েছে।
+- [x] Vercel project/deployment তৈরি করা হয়নি; README-তে user-triggered Deploy Button ও source-repository import পথ প্রস্তুত করা হয়েছে।
 
 ## Vercel one-click deployment প্রস্তুতি
 - [x] Root `vercel.json`-এ `npm ci`, `npm run build`, `dist` output, Node `22.x`, trailing-slash routing, legacy redirects এবং `X-Content-Type-Options`/`Referrer-Policy` headers নির্ধারণ করা হয়েছে; prerendered multi-page output সংরক্ষণে catch-all SPA rewrite যোগ করা হয়নি।
 - [x] Root `README.md`-এ Vercel Deploy Button ও existing GitHub repository import নির্দেশনা যোগ করা হয়েছে; `docs/vercel-deployment-notes.md`-এ বর্তমান official Vercel/Web3Forms নথির ভিত্তি রাখা হয়েছে।
-- [ ] Public GitHub repository তৈরি ও push—সুনির্দিষ্ট repository URL, public visibility এবং অন্তর্ভুক্ত file set user confirmation-এর অপেক্ষায়।
+- [x] User-confirmed public GitHub repository `https://github.com/talkbangladesh/atlas-ai-institute`-এ `main` branch push করা হয়েছে; generated `dist/`, `node_modules/` এবং বাস্তব `.env` বাদ রাখা হয়েছে।
 - [ ] Vercel-এ source repository import/Deploy Button চালানো এবং production route/status/header যাচাই এখনো করা হয়নি। Web3Forms-এর free `vercel.app` domain review দরকার হতে পারে।
 
-> এই working tree-তে prerender, route metadata, stable entity IDs, coalition membership distinction, publication-list schema, sitemap, robots, llms.txt, evidence registry এবং Vercel build/routing configuration বাস্তবায়ন ও local build-এ যাচাই করা হয়েছে। Public push এবং live Vercel deployment এখনো সম্পন্ন নয়।
+> এই working tree-তে prerender, route metadata, stable entity IDs, coalition membership distinction, publication-list schema, sitemap, robots, llms.txt, evidence registry এবং Vercel build/routing configuration বাস্তবায়ন ও local build-এ যাচাই করা হয়েছে। Public GitHub push সম্পন্ন; live Vercel deployment এবং production HTTP verification এখনো বাকি।
