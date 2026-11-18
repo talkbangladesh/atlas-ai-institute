@@ -236,11 +236,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <p className="font-[var(--font-serif)] font-semibold text-[clamp(22px,2.2vw,30px)] leading-[1.2] tracking-[-0.02em] text-[var(--ink)]">
-            {SITE_META.tagline}
-          </p>
-          <p className="font-[var(--font-mono)] text-[12px] uppercase tracking-[0.1em] text-[var(--footer-muted)] shrink-0">
+        <div className="pt-6 flex justify-end">
+          <p className="font-[var(--font-mono)] text-[12px] uppercase tracking-[0.1em] text-[var(--footer-muted)]">
             {SITE_META.copyright}
           </p>
         </div>
