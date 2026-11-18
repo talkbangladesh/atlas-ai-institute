@@ -236,7 +236,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 flex justify-end">
+        <div className="pt-[24px] flex justify-end">
           <p className="font-[var(--font-mono)] text-[12px] uppercase tracking-[0.1em] text-[var(--footer-muted)]">
             {SITE_META.copyright}
           </p>
