@@ -98,34 +98,34 @@ export const CAPABILITIES_CONTENT = {
       index: '01',
       title: 'Research',
       description:
-        'Comparative research on AI laws, regulatory approaches, institutional mandates, and public-sector governance capacity.',
+        'Compares AI laws, regulatory approaches, institutional mandates, and public-sector capacity.',
       to: '/research/',
     },
     {
       index: '02',
       title: 'Frameworks',
       description:
-        'Translating research evidence into practical governance concepts, responsibilities, and implementation pathways.',
+        'Defines principles, responsibilities, and practical steps for responsible AI oversight.',
       to: '/frameworks/',
     },
     {
       index: '03',
       title: 'Reports',
       description:
-        'Institutional and research reports documenting AI policy and governance developments.',
+        'Summarizes policy developments, research findings, and institutional analysis.',
       to: '/reports/',
     },
     {
       index: '04',
       title: 'Tools',
-      description: 'Research and governance tools developed by Atlas.',
+      description: 'Provides resources to assess AI systems and inform policy decisions.',
       to: '/tools/',
     },
     {
       index: '05',
       title: 'Projects',
       description:
-        'Public-interest digital systems and governance infrastructure supporting information integrity and institutional capacity.',
+        'Develops public-interest systems for reliable information and stronger institutions.',
       to: '/projects/',
     },
   ],
