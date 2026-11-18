@@ -7,6 +7,7 @@ import { Logo } from './Logo';
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [pubMenuOpen, setPubMenuOpen] = useState(false);
+  const [mobilePubMenuOpen, setMobilePubMenuOpen] = useState(false);
   const location = useLocation();
   const openBtnRef = useRef<HTMLButtonElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -17,6 +18,7 @@ export function Header() {
   useEffect(() => {
     setMenuOpen(false);
     setPubMenuOpen(false);
+    setMobilePubMenuOpen(false);
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
@@ -83,6 +85,7 @@ export function Header() {
       if (e.key === 'Escape') {
         e.preventDefault();
         setMenuOpen(false);
+        setMobilePubMenuOpen(false);
         openBtnRef.current?.focus();
         return;
       }
@@ -114,11 +117,13 @@ export function Header() {
 
   const closeMenu = () => {
     setMenuOpen(false);
+    setMobilePubMenuOpen(false);
     window.requestAnimationFrame(() => openBtnRef.current?.focus());
   };
 
   const closeMenuForNavigation = () => {
     setMenuOpen(false);
+    setMobilePubMenuOpen(false);
     window.requestAnimationFrame(() => {
       document.getElementById('main-content')?.focus({ preventScroll: true });
     });
@@ -290,7 +295,7 @@ export function Header() {
               type="button"
               aria-expanded={menuOpen}
               aria-controls="mobile-fullscreen-nav"
-              aria-label="Open navigation menu"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setMenuOpen(true)}
               className="atlas-menu-toggle md:hidden"
             >
@@ -341,7 +346,7 @@ export function Header() {
             <button
               ref={closeBtnRef}
               type="button"
-              aria-label="Close navigation menu"
+              aria-label="Close menu"
               onClick={closeMenu}
               className="atlas-menu-close"
             >
@@ -353,7 +358,7 @@ export function Header() {
             aria-label="Mobile navigation"
             className="atlas-mobile-nav"
           >
-            {mobilePrimaryLinks.map((item) => {
+            {mobilePrimaryLinks.map((item, index) => {
               const sourceItem = NAV_LINKS.find(
                 (candidate) => candidate.label === item.label
               );
@@ -362,33 +367,64 @@ export function Header() {
                 : location.pathname === item.to;
 
               return (
-                <div key={item.label} className="atlas-mobile-nav-group">
-                  <Link
-                    to={item.to}
-                    onClick={closeMenuForNavigation}
-                    aria-current={isActive ? 'page' : undefined}
-                    className="atlas-mobile-primary-link"
-                  >
-                    <span className="atlas-mobile-nav-number">{item.number}</span>
-                    <span className="atlas-mobile-nav-title">{item.label}</span>
-                  </Link>
+                <div
+                  key={item.label}
+                  className={`atlas-mobile-nav-group atlas-mobile-nav-group-${index + 1}`}
+                >
+                  <div className="atlas-mobile-primary-row">
+                    <Link
+                      to={item.to}
+                      onClick={closeMenuForNavigation}
+                      aria-current={isActive ? 'page' : undefined}
+                      className="atlas-mobile-primary-link"
+                    >
+                      <span className="atlas-mobile-nav-number">{item.number}</span>
+                      <span className="atlas-mobile-nav-title">{item.label}</span>
+                      <span className="atlas-mobile-primary-arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </Link>
+
+                    {item.label === 'Publications' && publicationsSubmenu.length > 0 && (
+                      <button
+                        type="button"
+                        aria-expanded={mobilePubMenuOpen}
+                        aria-controls="mobile-publications-submenu"
+                        aria-label="Toggle Publications submenu"
+                        onClick={() => setMobilePubMenuOpen((open) => !open)}
+                        className="atlas-mobile-subnav-toggle"
+                      >
+                        <ChevronDown
+                          size={20}
+                          aria-hidden="true"
+                          className={mobilePubMenuOpen ? 'is-open' : ''}
+                        />
+                      </button>
+                    )}
+                  </div>
 
                   {item.label === 'Publications' && publicationsSubmenu.length > 0 && (
-                    <div className="atlas-mobile-subnav">
-                      {publicationsSubmenu.map((sub) => {
-                        const subActive = location.pathname === sub.to;
-                        return (
-                          <Link
-                            key={sub.to}
-                            to={sub.to}
-                            onClick={closeMenuForNavigation}
-                            aria-current={subActive ? 'page' : undefined}
-                            className="atlas-mobile-subnav-link"
-                          >
-                            {sub.label}
-                          </Link>
-                        );
-                      })}
+                    <div
+                      id="mobile-publications-submenu"
+                      className={`atlas-mobile-subnav${mobilePubMenuOpen ? ' is-open' : ''}`}
+                      aria-hidden={!mobilePubMenuOpen}
+                    >
+                      <div className="atlas-mobile-subnav-inner">
+                        {publicationsSubmenu.map((sub) => {
+                          const subActive = location.pathname === sub.to;
+                          return (
+                            <Link
+                              key={sub.to}
+                              to={sub.to}
+                              onClick={closeMenuForNavigation}
+                              aria-current={subActive ? 'page' : undefined}
+                              className="atlas-mobile-subnav-link"
+                            >
+                              {sub.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>
