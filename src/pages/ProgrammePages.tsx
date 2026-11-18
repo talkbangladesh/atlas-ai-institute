@@ -27,7 +27,7 @@ export function AiForGoodPage() {
       </Card>
 
       <div className="flex flex-wrap gap-4">
-        <Button to="/#programmes" variant="ghost">
+        <Button to="/projects/#learning-development" variant="ghost">
           All Programmes
         </Button>
         <Button to="/#contact" variant="primary">
@@ -62,7 +62,7 @@ export function AiEducationPage() {
       </Card>
 
       <div className="flex flex-wrap gap-4">
-        <Button to="/#programmes" variant="ghost">
+        <Button to="/projects/#learning-development" variant="ghost">
           All Programmes
         </Button>
         <Button to="/#contact" variant="primary">

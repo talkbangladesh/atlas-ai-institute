@@ -142,7 +142,7 @@ export function Footer() {
             <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-[15px]">
               <li>
                 <Link
-                  to="/#programmes"
+                  to="/projects/#learning-development"
                   className="text-[var(--ink)] no-underline hover:text-[var(--cobalt)] hover:underline py-0.5 inline-block"
                 >
                   Programmes

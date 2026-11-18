@@ -8,6 +8,7 @@ import {
 } from '../data/publications';
 import { TOOLS_PAGE_META, tools } from '../data/tools';
 import { Eyebrow } from '../components/Eyebrow';
+import { LearningDevelopmentSection } from '../components/LearningDevelopmentSection';
 import { PublicationCard } from '../components/PublicationCard';
 import { PublicationList } from '../components/PublicationList';
 import { SubpageLayout } from './SubpageLayout';
@@ -140,6 +141,7 @@ export function ProjectsPage() {
         emptyMessage={PROJECTS_PAGE_META.emptyMessage}
         recordLabel={PROJECTS_PAGE_META.itemLinkLabel}
       />
+      <LearningDevelopmentSection />
     </SubpageLayout>
   );
 }

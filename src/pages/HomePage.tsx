@@ -10,7 +10,6 @@ import {
   HERO_CONTENT,
   INSIGHTS_CONTENT,
   INSTITUTIONAL_FIGURES,
-  PROGRAMMES_CONTENT,
   PUBLICATION_DEVELOPMENT,
   SITE_META,
 } from '../data/siteContent';
@@ -321,47 +320,10 @@ export function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 7. PROGRAMMES & INITIATIVES */}
-      <SectionShell
-        id="programmes"
-        eyebrow={PROGRAMMES_CONTENT.eyebrow}
-        headingId="programmes-heading"
-        variant="deep"
-      >
-        <h2 id="programmes-heading" className="mb-5">
-          {PROGRAMMES_CONTENT.heading}
-        </h2>
-        <p className="atlas-lead mb-12">{PROGRAMMES_CONTENT.description}</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {PROGRAMMES_CONTENT.cards.map((card) => (
-            <Card key={card.index} to={card.to}>
-              <div>
-                <span className="atlas-eyebrow text-[var(--cobalt)] block mb-3 tabular-nums">
-                  {card.index}
-                </span>
-                <h3 className="atlas-card-title mb-3 text-[var(--ink)]">
-                  {card.title}
-                </h3>
-                <p className="text-[16px] leading-[1.65] text-[var(--muted)] mb-8">
-                  {card.description}
-                </p>
-              </div>
-              <span className="mt-auto inline-flex items-center gap-2 font-[var(--font-mono)] text-[12px] uppercase tracking-[0.1em] text-[var(--ink)] group-hover:text-[var(--cobalt)] transition-colors">
-                <span>Read more</span>
-                <span className="atlas-arrow" aria-hidden="true">
-                  →
-                </span>
-              </span>
-            </Card>
-          ))}
-        </div>
-      </SectionShell>
-
-      {/* 8. ATLAS GLOBAL SOUTH AI POLICY COALITION */}
+      {/* 7. ATLAS GLOBAL SOUTH AI POLICY COALITION */}
       <CoalitionPanel />
 
-      {/* 9. LATEST INSIGHTS */}
+      {/* 8. LATEST INSIGHTS */}
       <SectionShell
         eyebrow={INSIGHTS_CONTENT.eyebrow}
         headingId="insights-heading"
@@ -379,7 +341,7 @@ export function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 10. CONTACT & COLLABORATION */}
+      {/* 9. CONTACT & COLLABORATION */}
       <SectionShell
         id="contact"
         eyebrow={CONTACT_CONTENT.eyebrow}

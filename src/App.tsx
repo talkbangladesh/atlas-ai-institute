@@ -152,6 +152,8 @@ export function AppShell() {
   const location = useLocation();
   useRouteSeo(location.pathname);
   const normalizedPath = location.pathname.replace(/\/+$/, '');
+  const isLegacyProgrammesAnchor =
+    location.pathname === '/' && location.hash === '#programmes';
   const committeeMatch = normalizedPath.match(
     /^\/atlas-global-south-ai-policy-coalition\/committee\/([^/]+)$/
   );
@@ -179,7 +181,16 @@ export function AppShell() {
           }
         >
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/"
+              element={
+                isLegacyProgrammesAnchor ? (
+                  <Navigate to="/projects/#learning-development" replace />
+                ) : (
+                  <HomePage />
+                )
+              }
+            />
             <Route path="/about-atlas-ai-institute/" element={<AboutPage />} />
             <Route path="/leadership/" element={<LeadershipPage />} />
             <Route path="/leadership/:slug/" element={<LeadershipProfilePage />} />
@@ -204,7 +215,9 @@ export function AppShell() {
             />
             <Route
               path="/atlas-global-ai-dialogue/"
-              element={<Navigate to="/#programmes" replace />}
+              element={
+                <Navigate to="/projects/#learning-development" replace />
+              }
             />
             <Route
               path="/atlas-global-south-ai-policy-coalition/"
