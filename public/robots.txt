@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /manus-oauth/
+Disallow: /manus-storage/
+
+# Search and retrieval crawlers may access the public site.
+# robots.txt is a voluntary access signal, not a security boundary.
+
+Sitemap: https://atlasai.institute/sitemap.xml
