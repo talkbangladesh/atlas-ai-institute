@@ -280,17 +280,20 @@ export function HomePage() {
         eyebrow={FEATURED_PUBLICATION.eyebrow}
         headingId="featured-heading"
         variant="deep"
+        className="atlas-featured-research-section"
       >
-        <h2 id="featured-heading" className="mb-5">
+        <h2 id="featured-heading" className="atlas-featured-section-heading mb-5">
           {FEATURED_PUBLICATION.heading}
         </h2>
-        <p className="atlas-lead mb-12">{FEATURED_PUBLICATION.description}</p>
+        <p className="atlas-featured-section-lead atlas-lead mb-12">
+          {FEATURED_PUBLICATION.description}
+        </p>
 
-        <div className="mb-10">
+        <div className="atlas-featured-report-wrap mb-10">
           <FeaturedReportCard />
         </div>
 
-        <div>
+        <div className="atlas-featured-section-cta">
           <Button to="/publications/" variant="primary">
             Explore All Research &amp; Publications
           </Button>

@@ -1752,3 +1752,234 @@ textarea.atlas-field-control {
   width: 80%;
   margin-inline: auto;
 }
+
+
+/* Featured research report: compact mobile treatment only. */
+.atlas-featured-extra-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.atlas-featured-read-more {
+  display: none;
+}
+
+.atlas-note-box-compact-summary {
+  display: none;
+}
+
+.atlas-note-box-compact .atlas-note-box-full {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .atlas-featured-research-section {
+    padding: 40px 0 32px;
+  }
+
+  .atlas-featured-research-section .atlas-featured-section-heading {
+    margin-bottom: 16px;
+  }
+
+  .atlas-featured-research-section .atlas-featured-section-lead {
+    margin-bottom: 20px;
+  }
+
+  .atlas-featured-research-section .atlas-featured-report-wrap {
+    margin-bottom: 20px;
+  }
+
+  .atlas-featured-report-card {
+    width: calc(100% + 8px);
+    margin-inline: -4px;
+  }
+
+  .atlas-featured-cover {
+    width: 100%;
+    margin: 12px 0;
+    padding: 0 12px;
+  }
+
+  .atlas-featured-cover-frame {
+    min-height: 0;
+    height: 160px;
+    max-height: 160px;
+    padding: 14px;
+  }
+
+  .atlas-featured-cover-frame .my-8 {
+    margin: 0;
+  }
+
+  .atlas-featured-cover-title {
+    font-size: 24px;
+    line-height: 1.05;
+  }
+
+  .atlas-featured-report-content {
+    gap: 0;
+    padding: 16px;
+  }
+
+  .atlas-featured-report-title {
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .atlas-featured-paragraphs {
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .atlas-featured-paragraph {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .atlas-featured-extra-paragraphs {
+    display: none;
+    gap: 10px;
+  }
+
+  .atlas-featured-extra-paragraphs.is-expanded {
+    display: flex;
+  }
+
+  .atlas-featured-read-more {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #80601F;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .atlas-featured-read-more:hover,
+  .atlas-featured-read-more:focus-visible {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .atlas-featured-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 12px 0;
+  }
+
+  .atlas-featured-stat-value {
+    margin-bottom: 4px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .atlas-featured-stat-label {
+    font-size: 10px;
+    line-height: 1.25;
+    letter-spacing: 0.06em;
+  }
+
+  .atlas-featured-metadata {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 6px;
+    margin-bottom: 16px;
+    line-height: 1.35;
+  }
+
+  .atlas-featured-meta-item {
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .atlas-featured-meta-doi {
+    grid-column: 1 / -1;
+  }
+
+  .atlas-featured-meta-item dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .atlas-note-box-compact {
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .atlas-note-box-compact .atlas-note-box-label {
+    display: none;
+  }
+
+  .atlas-note-box-compact-summary {
+    display: flex;
+    min-width: 0;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .atlas-note-box-compact-text {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .atlas-note-box-more {
+    flex: 0 0 auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #80601F;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.45;
+    cursor: pointer;
+  }
+
+  .atlas-note-box-more:hover,
+  .atlas-note-box-more:focus-visible {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .atlas-note-box-compact .atlas-note-box-full {
+    display: none;
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .atlas-note-box-compact .atlas-note-box-full.is-expanded {
+    display: block;
+  }
+
+  .atlas-featured-pub-actions {
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 0;
+  }
+
+  .atlas-featured-report-card .atlas-pub-actions .atlas-btn {
+    height: 44px;
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+}
