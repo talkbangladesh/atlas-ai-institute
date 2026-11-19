@@ -9,6 +9,7 @@ interface SubpageLayoutProps {
   headingId: string;
   sectionIndex?: string;
   heroExtra?: ReactNode;
+  compactSpacing?: boolean;
   children: ReactNode;
 }
 
@@ -19,11 +20,19 @@ export function SubpageLayout({
   headingId,
   sectionIndex = '01 / OVERVIEW',
   heroExtra,
+  compactSpacing = false,
   children,
 }: SubpageLayoutProps) {
   return (
     <>
-      <section aria-labelledby={headingId} className="py-12 sm:py-16 lg:py-20">
+      <section
+        aria-labelledby={headingId}
+        className={
+          compactSpacing
+            ? 'py-8 sm:py-10 lg:py-12'
+            : 'py-12 sm:py-16 lg:py-20'
+        }
+      >
         <div className="atlas-container">
           <div className="mb-8">
             <Link
@@ -45,9 +54,15 @@ export function SubpageLayout({
         </div>
       </section>
 
-      <section className="atlas-section">
+      <section
+        className={`atlas-section ${compactSpacing ? 'atlas-section-compact' : ''}`}
+      >
         <div className="atlas-container">
-          <div className="atlas-section-grid">
+          <div
+            className={`atlas-section-grid ${
+              compactSpacing ? 'atlas-section-grid-compact' : ''
+            }`}
+          >
             <div className="atlas-section-index">
               <Eyebrow>{sectionIndex}</Eyebrow>
             </div>

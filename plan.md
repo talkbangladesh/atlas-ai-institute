@@ -59,3 +59,12 @@ Vite build-এ sitemap ও 404 document, public `robots.txt`, এবং বি�
 - `public/`-এ source project-এর জন্য বর্তমান `sitemap.xml` আছে, কিন্তু `robots.txt` ও `llms.txt` নেই। Project source-এ local PDF নেই; publication PDF-গুলো external host-এ link করা।
 - Source archive-এ `.git/` এবং configured Git remote নেই; `origin/main` checkpoint করা সম্ভব নয়। Deployment platform, CDN, WAF বা production server configuration-ও archive-এ নেই; host-specific headers, caching, bot restrictions, server status codes বা deployment changes live-এ लागू হয়েছে বলে দাবি করা যাবে না।
 - `https://atlasai.institute/` বর্তমানে Rank Math-সহ WordPress HTML ফেরায়, যা upload করা Vite/React code-এর সঙ্গে মেলে না; project-এর leadership slug live origin-এ 404 দেয়। Taamaattumik এই পরিবর্তনগুলো project artifact-এ সীমাবদ্ধ থাকবে; production domain-এ publish/switch করা হবে না।
+
+
+## Publications কার্ড ও Insights Archive পরিষ্কারকরণ (2026-11-19)
+
+- বিদ্যমান React 19, React Router 7, Vite এবং `src/data/publications.ts`-এর ডেটা কাঠামো বজায় থাকবে; Next.js migration বা নতুন dependency যোগ হবে না।
+- Reports, Research, Frameworks এবং Publications-এর Latest resource list-এর জন্য একটি shared `ResourceCard` থাকবে। Card-এ type label ও date একবার, তিন-লাইন title/description clamp, compact metadata, responsive Details toggle এবং data-driven actions থাকবে। Desktop grid-এ একই সারির কার্ড সমান উচ্চতা পাবে; 390px মোবাইলে দুই action full-width ও এক action-যুক্ত card-ও একক full-width action দেখাবে।
+- Typographic cover শুধু Reports পৃষ্ঠার featured report-এ থাকবে; card padding-এর ভেতরে full-width, clipped navy panel হবে এবং label/date দ্বিতীয়বার দেখাবে না। Report highlight তিন কলামে, `75+ / 6 / 2,500+` ফরম্যাটে থাকবে; note দুই লাইনে clamp হবে এবং accessible “Read more” toggle থাকবে। Research/Framework/সাধারণ report card-এ cover থাকবে না।
+- Insights পৃষ্ঠায় একই intro-র পুনরাবৃত্তি ও redundant archive box বাদ যাবে, শুধু “Explore All Research & Publications” CTA থাকবে; `ARCHIVE` label থাকবে। Compact spacing ঐচ্ছিক SubpageLayout prop দিয়ে শুধু Insights-এ প্রয়োগ হবে। Reports section eyebrow হবে “01 / REPORTS”; অন্য পৃষ্ঠার spacing, colors, typography ও content অপরিবর্তিত থাকবে।
+- বিদ্যমান navy/gold, serif-heading, monospace-label design tokens এবং semantic HTML/focus patterns ব্যবহার হবে; 390px ও desktop-এ overflow/line-clamp/action sizing পরীক্ষা করে `npm run lint` এবং `npm run build` চালানো হবে।

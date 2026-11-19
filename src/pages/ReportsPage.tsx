@@ -4,9 +4,8 @@ import {
   REPORTS_PAGE_SECTION,
 } from '../data/publications';
 import { Eyebrow } from '../components/Eyebrow';
-import { FeaturedReportCard } from '../components/FeaturedReportCard';
-import { PublicationCard } from '../components/PublicationCard';
 import { PublicationList } from '../components/PublicationList';
+import { ResourceCard } from '../components/ResourceCard';
 import { SubpageLayout } from './SubpageLayout';
 
 export function ReportsPage() {
@@ -45,14 +44,18 @@ export function ReportsPage() {
 
           {featuredReport && (
             <div className="mb-8">
-              <FeaturedReportCard report={featuredReport} variant="reports" />
+              <ResourceCard
+                item={featuredReport}
+                kind="report"
+                featuredReport
+              />
             </div>
           )}
 
           {standardReports.length > 0 && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-[16px] lg:gap-[20px] items-stretch">
               {standardReports.map((report) => (
-                <PublicationCard key={report.id} publication={report} />
+                <ResourceCard key={report.id} item={report} kind="report" />
               ))}
             </div>
           )}

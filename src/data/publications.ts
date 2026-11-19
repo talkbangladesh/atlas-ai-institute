@@ -59,7 +59,7 @@ export const FRAMEWORK_GROUPS = [
 ] as const;
 
 export const REPORTS_PAGE_SECTION = {
-  index: '01',
+  index: '01 / REPORTS',
   title: 'Reports & Policy Intelligence',
 } as const;
 
@@ -73,6 +73,19 @@ export const PUBLICATION_CARD_LABELS = {
   readFullReport: 'Read Full Report',
   opensNewTab: ' (opens in a new tab)',
   frameworkGroupsNavLabel: 'Framework sections',
+} as const;
+
+export const RESOURCE_CARD_LABELS = {
+  types: {
+    report: 'REPORT',
+    research: 'RESEARCH',
+    framework: 'FRAMEWORK',
+  },
+  details: 'Details',
+  downloadPdf: 'Download PDF',
+  readFramework: 'Read Framework',
+  readNoteMore: 'Read more',
+  readNoteLess: 'Read less',
 } as const;
 
 export type ResearchTier = 'featured' | 'lead' | 'compact';
@@ -495,7 +508,7 @@ export const reports: Publication[] = [
     published: '25 August 2026',
     publishedIso: '2026-08-25',
     title:
-      'Global AI Policy Review 2026: An Evidence-Based Comparative Review of National AI Policy Ecosystems',
+      'Global AI Policy Review 2026: An Evidence‑Based Comparative Review of National AI Policy Ecosystems',
     paragraphs: [
       'An extensive, evidence-based comparative review of national artificial intelligence policy ecosystems across 75+ countries and six continents. This research examines how governments are developing, governing, regulating and deploying artificial intelligence through national strategies, legislation, regulatory institutions and policy frameworks.',
       'Covering AI governance institutions, AI-specific legislation, national strategies, data governance, innovation ecosystems, AI safety, security, ethics, human rights, inclusion and public-sector implementation, the review provides a comparative evidence base for understanding different national approaches to AI governance.',
@@ -505,7 +518,7 @@ export const reports: Publication[] = [
       'An extensive, evidence-based comparative review of national artificial intelligence policy ecosystems across 75+ countries and six continents. This research examines how governments are developing, governing, regulating and deploying artificial intelligence through national strategies, legislation, regulatory institutions and policy frameworks.\n\nCovering AI governance institutions, AI-specific legislation, national strategies, data governance, innovation ecosystems, AI safety, security, ethics, human rights, inclusion and public-sector implementation, the review provides a comparative evidence base for understanding different national approaches to AI governance.\n\nThe current edition comprises more than 2,500 pages of comparative research and country-level analysis, drawing primarily on official government policies, legislation, regulatory guidance and authoritative institutional sources.',
     highlights: [
       { value: '75+', label: 'Countries' },
-      { value: 'Six', label: 'Continents' },
+      { value: '6', label: 'Continents' },
       { value: '2,500+', label: 'Pages' },
     ],
     author: 'Nafiul Ahmad Rafi',

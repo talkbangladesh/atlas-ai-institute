@@ -6,10 +6,7 @@ import {
   RESEARCH_PAGE_CONTENT,
 } from '../data/publications';
 import { Eyebrow } from '../components/Eyebrow';
-import {
-  FeaturedResearchBlock,
-  ResearchCard,
-} from '../components/ResearchCard';
+import { ResourceCard } from '../components/ResourceCard';
 import { SubpageLayout } from './SubpageLayout';
 
 export function ResearchPage() {
@@ -70,13 +67,7 @@ export function ResearchPage() {
     >
       <div className="flex flex-col">
         {groupedCategories.map((cat) => {
-          const featuredItems = cat.items.filter((i) => i.tier === 'featured');
-          const leadItems = cat.items.filter((i) => i.tier === 'lead');
-          const compactItems = cat.items.filter((i) => i.tier === 'compact');
           const headingId = `${cat.id}-heading`;
-
-          const pairLeadWithCompact =
-            leadItems.length === 1 && compactItems.length === 1;
 
           return (
             <section
@@ -105,52 +96,11 @@ export function ResearchPage() {
                 </h2>
               </div>
 
-              {featuredItems.length > 0 && (
-                <div className="flex flex-col gap-8 mb-8">
-                  {featuredItems.map((item) => (
-                    <FeaturedResearchBlock key={item.id} item={item} />
-                  ))}
-                </div>
-              )}
-
-              {pairLeadWithCompact ? (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                  <div className="lg:col-span-7 flex flex-col">
-                    <ResearchCard item={leadItems[0]} />
-                  </div>
-                  <div className="lg:col-span-5 flex flex-col">
-                    <ResearchCard item={compactItems[0]} />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  {leadItems.length > 0 && (
-                    <div
-                      className={`grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch ${
-                        compactItems.length > 0 ? 'mb-6' : ''
-                      }`}
-                    >
-                      {leadItems.map((item) => (
-                        <ResearchCard key={item.id} item={item} />
-                      ))}
-                    </div>
-                  )}
-
-                  {compactItems.length > 0 && (
-                    <div
-                      className={`grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch ${
-                        compactItems.length >= 3
-                          ? 'min-[1440px]:grid-cols-3'
-                          : ''
-                      }`}
-                    >
-                      {compactItems.map((item) => (
-                        <ResearchCard key={item.id} item={item} />
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-[16px] lg:gap-[20px] items-stretch">
+                {cat.items.map((item) => (
+                  <ResourceCard key={item.id} item={item} kind="research" />
+                ))}
+              </div>
             </section>
           );
         })}

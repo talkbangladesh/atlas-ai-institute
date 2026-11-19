@@ -4,7 +4,7 @@ import {
   PUBLICATIONS_HUB_CONTENT,
 } from '../data/publications';
 import { Card } from '../components/Card';
-import { PublicationList } from '../components/PublicationList';
+import { ResourceCard } from '../components/ResourceCard';
 import { SubpageLayout } from './SubpageLayout';
 
 export function PublicationsPage() {
@@ -59,7 +59,15 @@ export function PublicationsPage() {
         <h2 className="text-[28px] leading-[1.2] font-semibold text-[var(--ink)] mb-6">
           {PUBLICATIONS_HUB_CONTENT.latestHeading}
         </h2>
-        <PublicationList items={latestItems} />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[16px] lg:gap-[20px] items-stretch">
+          {latestItems.map((item) => (
+            <ResourceCard
+              key={item.id}
+              item={item}
+              kind={item.category ?? 'report'}
+            />
+          ))}
+        </div>
       </div>
     </SubpageLayout>
   );

@@ -53,3 +53,14 @@
 - [ ] Vercel-এ source repository import/Deploy Button চালানো এবং production route/status/header যাচাই এখনো করা হয়নি। Web3Forms-এর free `vercel.app` domain review দরকার হতে পারে।
 
 > এই working tree-তে prerender, route metadata, stable entity IDs, coalition membership distinction, publication-list schema, sitemap, robots, llms.txt, evidence registry এবং Vercel build/routing configuration বাস্তবায়ন ও local build-এ যাচাই করা হয়েছে। Public GitHub push সম্পন্ন; live Vercel deployment এবং production HTTP verification এখনো বাকি।
+
+
+## Publications কার্ড ও Insights Archive
+- [x] Report, Research এবং Framework resource card-গুলোর জন্য একটি shared ResourceCard ব্যবহার করা; শুধু type label হবে `REPORT`, `RESEARCH` বা `FRAMEWORK`। বিদ্যমান navy/gold palette, serif heading, monospace label, data source ও semantic HTML বজায় রাখা; অন্য page-এর চেহারা/spacing পরিবর্তন না করা।
+  - Report cover কেবল featured report-এ থাকবে; card padding-এর সঙ্গে সারিবদ্ধ 100% width, `overflow: hidden`, এবং beige spill থাকবে না। Cover-এর “FEATURED RESEARCH REPORT · 25 AUGUST 2026” footer line সরানো হবে; label/date কার্ডে একবারই থাকবে।
+  - Title সর্বোচ্চ 3 line clamp, মোবাইলে 20–22px এবং tighter line-height; subtitle থাকলে colon-এর পরের অংশ regular-weight subtitle হিসেবে দেখানো। “Evidence-Based” title-এ non-breaking hyphen ও manual hyphenation ব্যবহার করা। Description মোবাইলে 3 line clamp; card-এর ভেতরের “Read more ↓” বাদ।
+  - Meta line হবে monospace, small gold `LABEL · DATE`, label/date একবার। Metadata 2-column label/value grid, 13px ও tight line spacing; mobile-এ Author, Published (meta line-এ), DOI দৃশ্যমান এবং বাকি metadata `aria-expanded` সহ “Details” toggle-এর পেছনে থাকবে।
+  - Featured report stats `repeat(3, 1fr)` grid-এ 22–24px number ও 11px label; divider-এর বাইরে overflow নয়; “Six Continents” বদলে “6 Continents”। Research coverage note সর্বোচ্চ দুই line দেখাবে এবং ন্যূনতম 44px tap target-সহ “Read more” button থাকবে।
+  - Report-এ সর্বোচ্চ দুই 48px action: primary “Read Full Report” (filled navy, gold border), secondary outlined “Download PDF”; mobile-এ full-width ও 12px gap। Research/Framework-এ একটি করে action। প্রতিটি card-এর mobile padding 20px, desktop 24px, card gap 16–20px এবং consistent gold top border; desktop row-এ 2–3 columns ও সমান card height।
+- [x] Latest Insights intro-র পুনরাবৃত্ত sentence সরানো; empty Archive box বাদ দিয়ে `ARCHIVE` label রাখা। Duplicate “Explore Research” CTA বাদ দিয়ে শুধু “Explore All Research & Publications” রাখা। Intro/divider/Archive-এর ফাঁক প্রায় 30–40% কমানো, কেবল Insights page-এ। Reports section eyebrow হবে monospace gold “01 / REPORTS”।
+- [x] কেবল Publications-related pages-এ পরিবর্তন সীমাবদ্ধ রাখা; `npm run lint`, `npm run build`, 390px mobile এবং desktop-এ no-horizontal-overflow/text-overflow, card/button/cover/metadata rendering যাচাই করা।

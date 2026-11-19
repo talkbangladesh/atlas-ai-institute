@@ -376,6 +376,12 @@
   }
 }
 
+@media (max-width: 999px) {
+  .atlas-section-grid-compact {
+    gap: 20px;
+  }
+}
+
 /* Cards */
 .atlas-card {
   background-color: var(--surface);
@@ -383,6 +389,16 @@
   border-top: 2px solid var(--cobalt);
   padding: 28px;
   transition: border-top-color 180ms ease-out;
+}
+
+.atlas-card.atlas-resource-card {
+  padding: 20px;
+}
+
+@media (min-width: 640px) {
+  .atlas-card.atlas-resource-card {
+    padding: 24px;
+  }
 }
 
 .atlas-card:hover {
@@ -1182,18 +1198,15 @@ textarea.atlas-field-control {
   border-color: rgba(212, 175, 101, 0.3);
 }
 
-.atlas-research-cover,
 .atlas-featured-cover {
   background-color: var(--paper-deep);
   color: var(--ink);
 }
 
-.atlas-research-cover [class*="border-white"],
 .atlas-featured-cover [class*="border-white"] {
   border-color: var(--hair);
 }
 
-.atlas-research-cover [class*="text-[var(--white)]"],
 .atlas-featured-cover [class*="text-[var(--white)]"] {
   color: var(--ink);
 }
