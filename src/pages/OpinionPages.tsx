@@ -11,6 +11,7 @@ type Answers = Record<string, string | string[]>;
 const DRAFT_KEY = 'atlas-opinion-bd-national-ai-policy-draft';
 const SUBMITTED_KEY = 'atlas-opinion-bd-national-ai-policy-submitted';
 const FIRST_INTERACTION_KEY = 'atlas-opinion-bd-national-ai-policy-first-interaction';
+const DRAFT_VERSION = 2;
 const questionLabel = (q: OpinionQuestion, lang: Lang) => lang === 'bn' ? q.bn : q.en;
 const optionLabel = (o: {bn:string;en:string}, lang: Lang) => lang === 'bn' ? o.bn : o.en;
 const getAnswer = (answers: Answers, id: string) => answers[id] ?? (Array.isArray(answers[id]) ? answers[id] : '');
@@ -52,12 +53,12 @@ export function OpinionConsultationPage() {
   const [now, setNow] = useState(Date.now());
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(DRAFT_KEY); if (saved) { const draft = JSON.parse(saved); setAnswers(draft.answers ?? {}); setOtherAnswers(draft.otherAnswers ?? {}); setStep(Math.min(draft.step ?? 0, formPages.length)); }
+      const saved = localStorage.getItem(DRAFT_KEY); if (saved) { const draft = JSON.parse(saved); setAnswers(draft.answers ?? {}); setOtherAnswers(draft.otherAnswers ?? {}); setStep(draft.version === DRAFT_VERSION ? Math.min(draft.step ?? 0, formPages.length) : 0); }
       const started = localStorage.getItem(FIRST_INTERACTION_KEY); if (started) setFirstInteraction(Number(started));
       setAlreadySubmitted(localStorage.getItem(SUBMITTED_KEY) === 'true');
     } catch { /* localStorage may be unavailable */ }
   }, []);
-  useEffect(() => { try { localStorage.setItem(DRAFT_KEY, JSON.stringify({ answers, otherAnswers, step })); localStorage.setItem(`${DRAFT_KEY}-lang`, lang); } catch { /* ignore storage errors */ } }, [answers, otherAnswers, step, lang]);
+  useEffect(() => { try { localStorage.setItem(DRAFT_KEY, JSON.stringify({ version: DRAFT_VERSION, answers, otherAnswers, step })); localStorage.setItem(`${DRAFT_KEY}-lang`, lang); } catch { /* ignore storage errors */ } }, [answers, otherAnswers, step, lang]);
   useEffect(() => { const timer = window.setInterval(() => setNow(Date.now()), 1000); return () => window.clearInterval(timer); }, []);
   const interact = () => { if (firstInteraction) return; const timestamp = Date.now(); setFirstInteraction(timestamp); try { localStorage.setItem(FIRST_INTERACTION_KEY, String(timestamp)); } catch { /* ignore */ } };
   const setValue = (id: string, value: string | string[]) => { interact(); setAnswers((current) => ({ ...current, [id]: value })); };
