@@ -39,7 +39,7 @@ const routeCopy: Record<string, { title: string; description: string }> = {
   },
   '/opinion/bd-national-ai-policy-committee/': {
     title: 'Bangladesh National AI Policy Consultation | Atlas AI Institute',
-    description: 'Share feedback on Bangladesh's National AI Policy process through an independent public and stakeholder consultation.',
+    description: "Share feedback on Bangladesh's National AI Policy process through an independent public and stakeholder consultation.",
   },
   '/leadership/': {
     title: 'Leadership | Atlas AI Institute',
