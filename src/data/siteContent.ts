@@ -278,10 +278,6 @@ export const CONTACT_CONTENT = {
       to: '/contact/',
     },
   ],
-  careersLink: {
-    label: 'Careers',
-    to: '/careers/',
-  },
 } as const;
 
 export const LEADERSHIP_CONTENT = {

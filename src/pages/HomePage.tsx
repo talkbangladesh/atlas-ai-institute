@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { Facebook, Linkedin } from 'lucide-react';
 import {
@@ -411,57 +410,6 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="border-t border-[var(--hair)] pt-6 flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px] text-[var(--ink)]">
-            <span>
-              Email:{' '}
-              <a
-                href={`mailto:${SITE_META.email}`}
-                className="text-[var(--cobalt)] font-medium hover:underline"
-              >
-                {SITE_META.email}
-              </a>
-            </span>
-            <span aria-hidden="true" className="text-[var(--muted)]">
-              ·
-            </span>
-            <span>
-              General enquiries:{' '}
-              <a
-                href={`mailto:${SITE_META.generalEmail}`}
-                className="text-[var(--cobalt)] font-medium hover:underline"
-              >
-                {SITE_META.generalEmail}
-              </a>
-            </span>
-            <span aria-hidden="true" className="text-[var(--muted)]">
-              ·
-            </span>
-            <span>
-              Official website:{' '}
-              <a
-                href={SITE_META.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--cobalt)] font-medium hover:underline"
-              >
-                {SITE_META.url}
-              </a>
-            </span>
-          </div>
-
-          <div>
-            <Link
-              to={CONTACT_CONTENT.careersLink.to}
-              className="atlas-inline-link inline-flex items-center gap-2 font-[var(--font-mono)] text-[12px] font-medium uppercase tracking-[0.1em] text-[var(--ink)] hover:text-[var(--cobalt)] no-underline min-h-[44px]"
-            >
-              <span>{CONTACT_CONTENT.careersLink.label}</span>
-              <span className="atlas-arrow" aria-hidden="true">
-                →
-              </span>
-            </Link>
-          </div>
-        </div>
       </SectionShell>
     </>
   );

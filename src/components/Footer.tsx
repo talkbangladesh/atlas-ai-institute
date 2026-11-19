@@ -193,7 +193,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/careers/"
-                  className="text-[var(--ink)] no-underline hover:text-[var(--cobalt)] hover:underline py-0.5 inline-block"
+                  className="text-[var(--ink)] no-underline hover:text-[var(--cobalt)] hover:underline py-0.5 min-h-[44px] inline-flex items-center"
                 >
                   Careers
                 </Link>
