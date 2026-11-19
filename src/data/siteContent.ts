@@ -215,7 +215,7 @@ export const PROGRAMMES_CONTENT = {
 } as const;
 
 export const COALITION_CONTENT = {
-  eyebrow: '07 / INTERNATIONAL COOPERATION',
+  eyebrow: '06 / INTERNATIONAL COOPERATION',
   officialName: 'ATLAS GLOBAL SOUTH AI POLICY COALITION',
   heading: 'Advancing International Cooperation on AI Governance',
   description:
@@ -248,7 +248,7 @@ export const INSIGHTS_CONTENT = {
 } as const;
 
 export const CONTACT_CONTENT = {
-  eyebrow: '09 / ENGAGE WITH ATLAS',
+  eyebrow: '08 / ENGAGE WITH ATLAS',
   heading: "Let's Advance the Future of AI Governance.",
   description:
     'Atlas AI Institute welcomes engagement with research institutions, universities, governments, policymakers, international organisations, and development partners.',

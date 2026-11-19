@@ -320,12 +320,12 @@ export function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 7. ATLAS GLOBAL SOUTH AI POLICY COALITION */}
+      {/* 6. ATLAS GLOBAL SOUTH AI POLICY COALITION */}
       <CoalitionPanel />
 
-      {/* 8. LATEST INSIGHTS */}
+      {/* 7. LATEST INSIGHTS */}
       <SectionShell
-        eyebrow={INSIGHTS_CONTENT.eyebrow}
+        eyebrow={INSIGHTS_CONTENT.eyebrow.replace(/^08/, '07')}
         headingId="insights-heading"
         variant="deep"
       >
@@ -341,7 +341,7 @@ export function HomePage() {
         </div>
       </SectionShell>
 
-      {/* 9. CONTACT & COLLABORATION */}
+      {/* 8. CONTACT & COLLABORATION */}
       <SectionShell
         id="contact"
         eyebrow={CONTACT_CONTENT.eyebrow}
