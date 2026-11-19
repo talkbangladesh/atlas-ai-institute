@@ -10,6 +10,7 @@ interface ButtonProps {
   size?: 'md' | 'lg';
   showArrow?: boolean;
   className?: string;
+  ariaLabel?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
@@ -24,6 +25,7 @@ export function Button({
   size = 'md',
   showArrow = true,
   className = '',
+  ariaLabel,
   onClick,
   type = 'button',
   disabled = false,
@@ -50,7 +52,7 @@ export function Button({
 
   if (to) {
     return (
-      <Link to={to} className={classes}>
+      <Link to={to} className={classes} aria-label={ariaLabel}>
         {content}
       </Link>
     );
@@ -64,20 +66,27 @@ export function Button({
           target="_blank"
           rel="noopener noreferrer"
           className={classes}
+          aria-label={ariaLabel}
         >
           {content}
         </a>
       );
     }
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} aria-label={ariaLabel}>
         {content}
       </a>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={classes}
+      aria-label={ariaLabel}
+    >
       {content}
     </button>
   );

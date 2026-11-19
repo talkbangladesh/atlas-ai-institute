@@ -78,7 +78,7 @@ const NotFoundPage = lazy(() =>
   }))
 );
 const AiEducationPage = lazy(() =>
-  import('./pages/ProgrammePages').then((module) => ({
+  import('./pages/AiEducationPage').then((module) => ({
     default: module.AiEducationPage,
   }))
 );

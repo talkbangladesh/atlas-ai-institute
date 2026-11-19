@@ -8,6 +8,7 @@ export const DEFAULT_SOCIAL_IMAGE = `${SITE_ORIGIN}/assets-optimized/brand/logo/
 const ORGANIZATION_ID = `${SITE_ORIGIN}/#org`;
 const WEBSITE_ID = `${SITE_ORIGIN}/#site`;
 const COALITION_ID = 'https://coalition.atlasai.institute/#org';
+const AI_EDUCATION_ID = 'https://education.atlasai.institute/#organization';
 const NAFIUL_PROFILE_URL = `${SITE_ORIGIN}/leadership/nafiulahmadrafi/`;
 const NAFIUL_PERSON_ID = `${NAFIUL_PROFILE_URL}#person`;
 
@@ -78,9 +79,10 @@ const routeCopy: Record<string, { title: string; description: string }> = {
       'Explore Atlas AI Institute work on public-interest AI, responsible innovation, and institutions serving communities.',
   },
   '/ai-policy-governance-education/': {
-    title: 'AI Policy & Governance Education | Atlas AI Institute',
+    title:
+      'Atlas AI Education: AI literacy and responsible AI programmes for everyone | Atlas AI Institute',
     description:
-      'Explore Atlas AI Institute education and capacity-building work on AI policy, governance, and institutional readiness.',
+      'Practical, responsible AI learning for citizens, students, professionals and institutions, from Atlas AI Institute.',
   },
   '/atlas-global-south-ai-policy-coalition/': {
     title: 'Atlas Global South AI Policy Coalition | Atlas AI Institute',
@@ -160,6 +162,18 @@ function coalitionSchema() {
     description:
       'An international collaboration among researchers, policy professionals, civil society organisations, institutions, and practitioners working on AI governance.',
     ...(coalitionSocial ? { sameAs: [coalitionSocial.href] } : {}),
+  };
+}
+
+function aiEducationSchema() {
+  return {
+    '@type': 'EducationalOrganization',
+    '@id': AI_EDUCATION_ID,
+    name: 'Atlas AI Education',
+    url: 'https://education.atlasai.institute',
+    description:
+      'Practical, responsible AI learning for citizens, students, professionals and institutions, from Atlas AI Institute.',
+    parentOrganization: { '@id': ORGANIZATION_ID },
   };
 }
 
@@ -295,9 +309,16 @@ export function getRouteSeo(pathname: string): RouteSeo {
   const description = copy?.description ?? 'The requested Atlas AI Institute page could not be found.';
   const canonical = isKnown ? `${SITE_ORIGIN}${normalized}` : `${SITE_ORIGIN}/404.html`;
   const isCoalitionRoute = normalized === '/atlas-global-south-ai-policy-coalition/' || Boolean(committeeMember);
+  const isAiEducationRoute = normalized === '/ai-policy-governance-education/';
   const publicationList = isKnown ? publicationListSchema(normalized) : undefined;
   const pageEntityId = `${canonical}#webpage`;
-  const mainEntityId = person?.id ?? (isCoalitionRoute ? COALITION_ID : ORGANIZATION_ID);
+  const mainEntityId =
+    person?.id ??
+    (isCoalitionRoute
+      ? COALITION_ID
+      : isAiEducationRoute
+        ? AI_EDUCATION_ID
+        : ORGANIZATION_ID);
   const graph: Record<string, unknown>[] = [
     organizationSchema(),
     founderPersonSchema(Boolean(committeeMember?.slug === 'nafiulahmadrafi')),
@@ -312,6 +333,7 @@ export function getRouteSeo(pathname: string): RouteSeo {
   ];
 
   if (isCoalitionRoute) graph.push(coalitionSchema());
+  if (isAiEducationRoute) graph.push(aiEducationSchema());
 
   graph.push({
     '@type': type === 'profile' ? 'ProfilePage' : 'WebPage',
@@ -321,8 +343,9 @@ export function getRouteSeo(pathname: string): RouteSeo {
     description,
     isPartOf: { '@id': WEBSITE_ID },
     publisher: { '@id': ORGANIZATION_ID },
-    about: { '@id': person ? person.id : isCoalitionRoute ? COALITION_ID : ORGANIZATION_ID },
+    about: { '@id': mainEntityId },
     ...(person ? { mainEntity: { '@id': person.id } } : {}),
+    ...(isAiEducationRoute ? { mainEntity: { '@id': AI_EDUCATION_ID } } : {}),
     ...(publicationList ? { mainEntity: { '@id': publicationList['@id'] } } : {}),
     breadcrumb: breadcrumbSchema(canonical, title),
   });

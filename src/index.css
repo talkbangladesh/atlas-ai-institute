@@ -2395,3 +2395,133 @@ textarea.atlas-field-control {
     transform: none;
   }
 }
+
+
+/* AI Education landing page: scoped responsive layout and CTA sizing. */
+.atlas-ai-education-page {
+  min-width: 0;
+}
+
+.atlas-ai-education-page .atlas-education-hero {
+  padding-block: 52px 48px;
+}
+
+.atlas-ai-education-page .atlas-education-section {
+  border-top: 1px solid var(--hair);
+  padding-block: 48px;
+}
+
+.atlas-ai-education-page .atlas-education-programme-grid,
+.atlas-ai-education-page .atlas-education-benefits-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.atlas-ai-education-page .atlas-education-programme-card {
+  min-width: 0;
+  border: 1px solid var(--hair);
+  border-top: 2px solid var(--cobalt);
+  background: var(--surface);
+  padding: 20px;
+}
+
+.atlas-ai-education-page .atlas-education-benefits-grid {
+  list-style: none;
+}
+
+.atlas-ai-education-page .atlas-education-benefit {
+  min-width: 0;
+  border-left: 2px solid var(--cobalt);
+  padding: 4px 0 4px 16px;
+}
+
+.atlas-ai-education-page .atlas-education-final-section {
+  border-top: 0;
+  padding-top: 0;
+  padding-bottom: 56px;
+}
+
+.atlas-ai-education-page .atlas-education-final-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  border: 1px solid var(--cobalt);
+  background: var(--navy);
+  padding: 24px;
+}
+
+.atlas-ai-education-page .atlas-education-final-eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.atlas-ai-education-page .atlas-btn {
+  height: 48px;
+  min-height: 48px;
+  padding-block: 0;
+}
+
+@media (min-width: 640px) {
+  .atlas-ai-education-page .atlas-education-programme-card {
+    padding: 24px;
+  }
+
+  .atlas-ai-education-page .atlas-education-final-cta {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .atlas-ai-education-page .atlas-education-hero {
+    padding-block: 72px 64px;
+  }
+
+  .atlas-ai-education-page .atlas-education-section {
+    padding-block: 64px;
+  }
+
+  .atlas-ai-education-page .atlas-education-programme-grid,
+  .atlas-ai-education-page .atlas-education-benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .atlas-ai-education-page .atlas-education-final-cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  .atlas-ai-education-page .atlas-education-final-section {
+    padding-top: 0;
+    padding-bottom: 72px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .atlas-ai-education-page .atlas-education-benefits-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+.atlas-ai-education-page .atlas-education-trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.atlas-ai-education-page .atlas-education-trust-list li + li::before {
+  content: '·';
+  margin-right: 20px;
+  color: var(--cobalt);
+}
