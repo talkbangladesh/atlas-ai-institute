@@ -64,6 +64,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  to="/opinion/"
+                  className="text-[var(--ink)] no-underline hover:text-[var(--cobalt)] hover:underline py-0.5 inline-block"
+                >
+                  Opinion
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/#contact"
                   className="text-[var(--ink)] no-underline hover:text-[var(--cobalt)] hover:underline py-0.5 inline-block"
                 >

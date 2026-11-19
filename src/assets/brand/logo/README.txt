@@ -1,1 +1,0 @@
-Place the official Atlas AI Institute logo files here: logo-horizontal.svg or .png (emblem + wordmark, for light backgrounds), logo-horizontal-white.svg or .png (for the dark footer), logo-mark.svg or .png (emblem only, square). Prefer SVG; otherwise PNG at 2x or larger with transparent background.

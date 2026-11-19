@@ -17,6 +17,7 @@ function findHeaderLogoFile(brandLogoDir: string): string | undefined {
 
 export default defineConfig(() => {
   return {
+    envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
     plugins: [
       react(),
       tailwindcss(),

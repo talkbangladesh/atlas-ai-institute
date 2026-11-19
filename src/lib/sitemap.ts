@@ -5,6 +5,8 @@ const SITE_ORIGIN = 'https://atlasai.institute';
 
 const STATIC_ROUTES = [
   '/',
+  '/opinion/',
+  '/opinion/bd-national-ai-policy-committee/',
   '/about-atlas-ai-institute/',
   '/leadership/',
   '/research/',

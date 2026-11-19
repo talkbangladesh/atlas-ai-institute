@@ -33,6 +33,14 @@ const routeCopy: Record<string, { title: string; description: string }> = {
     description:
       'Learn about Atlas AI Institute, an independent research institute working across AI policy, governance intelligence, and institutional capacity.',
   },
+  '/opinion/': {
+    title: 'Public Opinion | Atlas AI Institute',
+    description: 'Share your perspective on AI policy and governance issues with Atlas AI Institute.',
+  },
+  '/opinion/bd-national-ai-policy-committee/': {
+    title: 'Bangladesh National AI Policy Consultation | Atlas AI Institute',
+    description: 'Share feedback on Bangladesh's National AI Policy process through an independent public and stakeholder consultation.',
+  },
   '/leadership/': {
     title: 'Leadership | Atlas AI Institute',
     description:

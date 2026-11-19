@@ -11,6 +11,8 @@ import { Header } from './components/Header';
 import { getCoalitionMemberBySlug } from './data/coalitionCommittee';
 import { useRouteSeo } from './lib/seo';
 
+const OpinionPage = lazy(() => import('./pages/OpinionPages').then((module) => ({ default: module.OpinionPage })));
+const OpinionConsultationPage = lazy(() => import('./pages/OpinionPages').then((module) => ({ default: module.OpinionConsultationPage })));
 const AboutPage = lazy(() =>
   import('./pages/AboutPage').then((module) => ({ default: module.AboutPage }))
 );
@@ -191,6 +193,8 @@ export function AppShell() {
                 )
               }
             />
+            <Route path="/opinion/" element={<OpinionPage />} />
+            <Route path="/opinion/bd-national-ai-policy-committee/" element={<OpinionConsultationPage />} />
             <Route path="/about-atlas-ai-institute/" element={<AboutPage />} />
             <Route path="/leadership/" element={<LeadershipPage />} />
             <Route path="/leadership/:slug/" element={<LeadershipProfilePage />} />
